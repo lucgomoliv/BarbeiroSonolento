@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections;
 using System.Threading;
 
 namespace BarbeiroSonolento
@@ -29,7 +25,7 @@ namespace BarbeiroSonolento
             fila = new Queue<Thread>();
             barbeiro = new Thread(dormir);
             Random rnd = new Random();
-            timer = new System.Timers.Timer() { Interval = rnd.Next() % frequenciaClientes };
+            timer = new System.Timers.Timer() { Interval = rnd.Next(100, frequenciaClientes) };
             timer.Elapsed += Timer_Elapsed;
             esperarChegar = new AutoResetEvent(false);
             esperarAtender = new AutoResetEvent(true);
@@ -40,7 +36,7 @@ namespace BarbeiroSonolento
         static void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             Random rnd = new Random();
-            timer.Interval = rnd.Next() % frequenciaClientes;
+            timer.Interval = rnd.Next(100, frequenciaClientes);
             entrarCliente();
         }
 
@@ -69,7 +65,7 @@ namespace BarbeiroSonolento
             Console.WriteLine("Barbeiro atendendo o cliente " + numClientesAtendidos + "!");
             fila.Dequeue();
             Random rnd = new Random();
-            Thread.Sleep(rnd.Next() % frequenciaAtendimento);
+            Thread.Sleep(rnd.Next(100, frequenciaAtendimento));
             esperarAtender.Set();
             Console.WriteLine("Atendimento terminado!");
             numClientesAtendidos++;
