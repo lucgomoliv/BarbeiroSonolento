@@ -1,11 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 
 namespace BarbeiroSonolento
 {
     class Program
     {
+        static string cabecalho()
+        {
+            StringBuilder aux = new StringBuilder();
+            aux.AppendLine("Integrantes:")
+                .AppendLine("Patryck Kenny Pereira de Paiva - 645684")
+                .AppendLine("Ana Luiza Gonçalves Lourenço Barros - 650193")
+                .AppendLine("Vinicius de Castro - 643297")
+                .AppendLine("Victor Henrique de Souza Oliveira - 643287")
+                .AppendLine("Douglas Barbosa da Silva - 539301")
+                .AppendLine("Lucas Alves Costa de Souza Araujo - 641119")
+                .AppendLine("Daniel de Pinho Matos - 287404")
+                .AppendLine("Wernen Rodrigues - 597704")
+                .AppendLine("Matheus Vinícius Nascimento - 685670")
+                .AppendLine("Lucas Gomes Oliveira - 667357")
+                .AppendLine("Alex Barros Vasconcelos - 663877");
+            return aux.ToString();
+        }
+
         //Variaveis de controle
         static int frequenciaClientes, frequenciaAtendimento;
 
@@ -17,6 +36,7 @@ namespace BarbeiroSonolento
         static int numClientesChegado, numClientesAtendidos;
         static void Main(string[] args)
         {
+            Console.WriteLine(cabecalho());
             frequenciaAtendimento = 10000;
             frequenciaClientes = 10000;
 
